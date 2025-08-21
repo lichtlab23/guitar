@@ -1,0 +1,7 @@
+@use './var' as *;
+@use './font';
+
+body{
+    font-family: $font;
+    color: $accent;
+}
