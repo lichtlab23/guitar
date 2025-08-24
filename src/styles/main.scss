@@ -550,3 +550,68 @@ a{
         letter-spacing: -0.005em;
     }
 }
+
+.result{
+    margin-top: 150px;
+    margin-bottom: 150px;
+    &__list{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+        margin-top: 50px;
+    }
+    &__item{
+        display: flex;
+        padding: 30px;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-start;
+        gap: 20px;
+        flex-shrink: 0;
+        border-radius:  20px;
+        background-color: $light;
+        &._subgrid{
+            grid-column: 2 / 5;
+            display: grid;
+            grid-template-columns: subgrid;
+            align-items: center;
+        }
+    }
+    &__text{
+        color: $dark;
+        span{
+            display: block;
+            width: fit-content;
+            background-color: $accent;
+            color: $light;
+            font-size: 24px;
+            font-weight: 600;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+    }
+    &__btn{
+      grid-column: 2 / 5;
+      color: $light;
+      height: 100%;
+        font-size: 20px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        background-color: $accent;
+        border: 1px solid $accent;
+        padding: 30px;
+        border-radius: $br-20;
+        transition: $tr;
+        cursor: pointer;
+        @media(hover: hover){
+            &:hover{
+                background-color: transparent;
+                border-color: $accent;
+                color: $accent;
+                transition: $tr;
+            }
+        } 
+    }
+}
