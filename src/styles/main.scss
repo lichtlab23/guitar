@@ -106,6 +106,15 @@ a{
     }
 }
 
+.logo{
+    &._min{
+        svg{
+            width: 296px;
+            height: 22px;
+        }
+    }
+}
+
 .container{
     width: 100%;
     max-width: 1830px;
@@ -579,8 +588,13 @@ a{
     }
     &__text{
         color: $dark;
+        line-height: 150%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        margin-top: 0;
+        margin-bottom: 0;
         span{
-            display: block;
             width: fit-content;
             background-color: $accent;
             color: $light;
@@ -588,11 +602,10 @@ a{
             font-weight: 600;
             padding: 10px;
             border-radius: 10px;
-            margin-bottom: 20px;
         }
     }
     &__btn{
-      grid-column: 2 / 5;
+      grid-column: 2 / 4;
       color: $light;
       height: 100%;
         font-size: 20px;
@@ -613,5 +626,186 @@ a{
                 transition: $tr;
             }
         } 
+    }
+}
+
+.areas{
+    margin-bottom: 150px;
+    ._areas-title{
+        margin-bottom: 50px;
+    }
+    &__list{
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+    &__link{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 30px;
+        color: $light;
+        background-color: transparent;
+        border-radius: 0;
+        transition: $tr;
+        font-size: 32px;
+        font-weight: 400;
+        line-height: 150% /* 48px */;
+        position: relative;
+        &:not(:last-child){
+            border-bottom: 1px solid $accent;
+        }
+        &:hover{
+            border-radius: 10px;
+            background-color: $accent;
+            &::after{
+                transform: rotate(45deg);
+            }
+            &::before{
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        &::after{
+            content: '';
+            display: block;
+            width: 48px;
+            height: 48px;
+            background-image: url('../images/arrow.svg');
+            background-repeat: no-repeat;
+            background-position: center;
+            transition: $tr;
+        }
+        &::before{
+            display: block;
+            content: '';
+            background-repeat: no-repeat;
+            background-size: contain;
+            position: absolute;
+            left: 769px;
+            opacity: 0;
+            transform: scale(0);
+            transition: $tr;
+        }
+        &._classic{
+            &::before{
+                height: 274px;
+                width: 527px;
+                background-image: url('../images/areas/classic-guitar.png');
+                position: absolute;
+                top: calc(50% - 174px);
+            }
+        }
+        &._dram{
+            &::before{
+                height: 300px;
+                width: 300px;
+                background-image: url('../images/areas/dram.png');
+                position: absolute;
+                top: calc(50% - 165px);
+            }
+        }
+        &._violin{
+            &::before{
+                height: 469px;
+                width: 385px;
+                background-image: url('../images/areas/violin.png');
+                position: absolute;
+                top: calc(50% - 240px);
+            }
+        }
+        &._bass{
+            &::before{
+                height: 300px;
+                width: 575px;
+                background-image: url('../images/areas/bass-guitar.png');
+                position: absolute;
+                top: calc(50% - 165px);
+            }
+        }
+    }
+}
+
+.footer{
+    display: grid;
+    grid-template-columns: 1fr 450px;
+    gap: 10px 20px;
+    background-color: $dark;
+    padding: 30px 50px;
+    margin-bottom: 30px;
+    border-radius: $br-20;
+    &__text{
+        margin-top: 0;
+        margin-bottom: 0;
+        & + & {
+            margin-top: 6px;
+        }
+    }
+    &__link{
+        color: $accent;
+        box-shadow: 0 4px 0 -3px $accent;
+        transition: $tr;
+        &:hover{
+            box-shadow: 0 4px 0 -3px transparent;
+        }
+    }
+    &__copy{
+        text-align: right;
+        align-self: end;
+    }
+}
+
+.social{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 11px;
+    &__link{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        background-color: $light;
+        border-radius: 10px;
+        transition: $tr;
+        &:hover{
+            background-color: $accent;
+            &::after{
+                background-color: $light;
+            }
+        }
+        &::after{
+            content: '';
+            display: block;
+            background-color: $accent;
+            mask: center center / 100% no-repeat;
+            -webkit-mask: center center / 100% no-repeat;
+            transition: $tr;
+        }
+        &._wa{
+            &::after{
+                width: 28px;
+                height: 28px;
+                mask-image: url(../images/icons/wa.svg);
+                -webkit-mask-image: url(../images/icons/wa.svg);
+            }
+        }
+        &._vk{
+            &::after{
+                width: 31px;
+                height: 19px;
+                mask-image: url(../images/icons/vk.svg);
+                -webkit-mask-image: url(../images/icons/vk.svg);
+            }
+        }
+        &._tg{
+            &::after{
+                width: 25px;
+                height: 22px;
+                mask-image: url(../images/icons/tg.svg);
+                -webkit-mask-image: url(../images/icons/tg.svg);
+            }
+        }
     }
 }
