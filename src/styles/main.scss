@@ -24,6 +24,9 @@ a{
     margin-top: 0;
     margin-bottom: 0;
     line-height: 110%;
+    @media (max-width: $r_mobile_600) {
+        font-size: 18px;
+    }
 }
 
 
@@ -39,6 +42,10 @@ a{
     @media (max-width: $r_tab){
                 height: 66px;
             }
+    @media (max-width: ($r_tab - 20px)){
+        height: 40px;
+        background-color: $accent;
+    }
     &::before{
         content: '';
         display: block;
@@ -52,6 +59,9 @@ a{
         @media (max-width: $r_tab){
         top: -2px;
         }
+        @media (max-width: ($r_tab - 20px)){
+            display: none;
+        }
     }
     &__logo{
         background-color: $accent;
@@ -59,7 +69,10 @@ a{
         border-radius: 10px 0 0 0;
         position: relative;
         @media (max-width: $r_desk){
-        padding: 17px 20px 0 20px;
+            padding: 17px 20px 0 20px;
+        }
+        @media (max-width: $r_tab){
+            padding: 5px 15px 0 15px;
         }
         &::after{
             content: '';
@@ -75,6 +88,9 @@ a{
                 background-size: contain;
                 background-repeat: no-repeat;
                 right: -62px;
+            }
+            @media (max-width: ($r_tab - 20px)){
+                display: none;
             }
         }
         &::before{
@@ -96,10 +112,13 @@ a{
         border-radius: 0 10px 0 0;
         background-color: $accent;
         @media (max-width: $r_desk){
-        padding: 17px 20px 0 20px;
+            padding: 17px 20px 0 20px;
         }
         @media (max-width: $r_tab){
-        padding: 20px 20px 0 20px;
+            padding: 20px 20px 0 20px;
+        }
+        @media (max-width: ($r_tab - 20px)){
+            padding: 5px 15px 0 15px;
         }
         &::before{
             content: '';
@@ -128,6 +147,9 @@ a{
                 background-repeat: no-repeat;
                 left: -62px;
             }
+            @media (max-width: ($r_tab - 20px)){
+                display: none;
+            }
         }
     }
     &__link{
@@ -143,7 +165,11 @@ a{
         }
         @media (max-width: $r_tab){
                 font-size: 16px;
-            }
+        }
+        @media (max-width: $r_mobile_600){
+            font-size: 10px;
+            padding-bottom: 3px;
+        }
     }
 }
 
@@ -154,6 +180,9 @@ a{
             height: 31px;
             @media (max-width: $r_desk){
                 width: clamp(300px, 39vw, 400px);
+            }
+            @media (max-width: $r_mobile_600){
+                width: 150px;
             }
         }
     }
@@ -192,6 +221,12 @@ a{
     @media (max-width: ($r_desk - 24px)){
         padding: 50px 30px;
     }
+    @media (max-width: ($r_tab - 20px)){
+        margin-top: 88px;
+        border-radius: $br-20;
+        padding: 20px 15px;
+        margin-bottom: 70px;
+    }
     &__main{
         flex-basis: 61%;
         display: flex;
@@ -204,6 +239,9 @@ a{
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 20px;
+        }
+        @media (max-width: ($r_tab - 20px)){
+            grid-template-columns: 1fr;
         }
     }
     &__item{
@@ -356,6 +394,12 @@ a{
         @media (max-width: $r_desk_full){
             font-size: clamp(50px, 4vw + 1rem, 64px);
         }
+        @media (max-width: $r_tab){
+            font-size: 40px;
+        }
+        @media (max-width: $r_mobile_600){
+            font-size: 25px;
+        }
     }
     &__btn{
         display: block;
@@ -395,25 +439,41 @@ a{
     @media (max-width: $r_desk_full){
         padding-right: 332px;
     }
+    @media (max-width: $r_tab){
+        padding-right: clamp(150px, 33vw, 250px);
+    }
+    @media (max-width: ($r_tab - 20px)){
+        padding: 15px;
+    }
     &__title{
             font-size: 24px;
             font-weight: 400;
             text-transform: uppercase;
             letter-spacing: 1.2px;
             margin-top: 0;
+            text-wrap: nowrap;
+
+            @media (max-width: $r_tab){
+            font-size: clamp(18px, 1.5vw + 0.8rem, 24px);
+            }
     }
     &__text{
         font-size: 20px;
         line-height: 150%;
         font-weight: 400;
-        margin-top: 0;
-        margin-bottom: 30px;
+        margin: 0;
          @media (max-width: $r_desk_full){
             max-width: 572px;
+        }
+        @media (max-width: $r_tab){
+            font-size: clamp(14px, 2.7vw, 20px);
         }
     }
     &__img{
         position: absolute;
+        @media (max-width: ($r_tab - 20px)){
+            display: none;
+        }
         &._electroguitar{
             top: -68px;
             right: -20px;
@@ -426,6 +486,10 @@ a{
                 width: auto;
                 top: -68px;
                 bottom: inherit;
+            }
+            @media (max-width: $r_tab){
+                width: clamp(150px, 33vw, 252px);
+                top: -10px;
             }
         }
     }
@@ -449,6 +513,9 @@ a{
         &:hover{
         animation-play-state: paused;
     }
+    }
+    @media (max-width: ($r_tab - 20px)) {
+        display: none;
     }
     &__text{
         border: 1px solid $grey;
@@ -501,6 +568,9 @@ a{
         display: flex;
         justify-content: space-between;
         }
+        @media (max-width: $r_mobile_600) {
+            align-items: center;
+        }
     }
     &__control{
         margin-top: 60px;
@@ -522,6 +592,9 @@ a{
     display: flex;
     align-items: center;
     gap: 20px;
+    @media (max-width: $r_mobile_600) {
+        gap: 10px;
+    }
     &__prev, &__next{
         display: flex;
         align-items: center;
@@ -536,12 +609,29 @@ a{
         position: inherit;
         color: $light;
         transition: $tr;
+        &::after{
+            @media (max-width: $r_tab) {
+                font-size: 25px;
+            }
+            @media (max-width: $r_mobile_600) {
+                font-size: 20px;
+            }
+        }
+        @media (max-width: $r_tab ) {
+            width: 50px;
+            height: 50px;
+            margin-top: 0;
+        }
+        @media (max-width: $r_mobile_600) {
+            width: 40px;
+            height: 40px;
+        }
         @media (hover: hover) {
             &:hover{
             background-color: $accent;
             border-color: $accent;
             transition: $tr;
-        }
+            }
         }
     }
 
@@ -559,6 +649,10 @@ a{
         overflow: hidden;
         transition: $tr;
         box-sizing: border-box;
+        z-index: 2;
+        @media (max-width: $r_tab) {
+                border: 1px solid $accent;
+            }
         @media (max-width: $r_desk_full) {
             height: min(672px, 47vw);
         }
@@ -609,6 +703,26 @@ a{
             text-align: center;
             left: 0;
         }
+        &._desktop{
+            @media (max-width: $r_tab) {
+                display: none;
+            }
+        }
+        &._mobile{
+            display: none;
+            font-size: 12px;
+            margin-top: 8px;
+            opacity: 1;
+            position: inherit;
+            bottom: inherit;
+            left: inherit;
+            @media (max-width: $r_tab) {
+                display: block;
+            }
+            &::before{
+                display: none;
+            }
+        }
         &::before{
             content: '';
             display: block;
@@ -651,6 +765,10 @@ a{
         border-radius: $br-20;
         margin-bottom: 24px;
         cursor: pointer;
+        @media (max-width: $r_mobile_600) {
+            font-size: 14px;
+            padding: 17px 15px;
+        }
         &::after{
             content: '';
             display: block;
@@ -659,6 +777,10 @@ a{
             background-image: url('../images/minus.svg');
             background-repeat: no-repeat;
             background-size: contain;
+            @media (max-width: $r_mobile_600) {
+                width: 40px;
+                height: 40px;
+            }
         }
         &.active{
             &::after{
@@ -683,6 +805,9 @@ a{
         list-style-type: none;
         padding-left: 0;
         padding: 30px 50px;
+        @media (max-width: $r_mobile_600) {
+            padding: 15px 20px;
+        }
     }
     &__item{
         display: flex;
@@ -691,6 +816,9 @@ a{
         color: $dark;
         font-size: 24px;
         font-weight: 300;
+        @media (max-width: $r_mobile_600) {
+            font-size: 12px; 
+        }
         & + & {
             margin-top: 30px;
         }
@@ -716,8 +844,15 @@ a{
         padding-top: 80px;
         padding-bottom: 80px;
     }
+    @media (max-width: $r_mobile_600) {
+        padding: 15px 10px;
+        border-radius: $br-20;
+    }
     &__title-h2{
         margin-bottom: 50px;
+        @media (max-width: $r_mobile_600) {
+        margin-bottom: 20px;
+        }
     }
     &__list{
         display: grid;
@@ -729,6 +864,10 @@ a{
         }
         @media (max-width: $r_tab) {
             gap: 20px;
+        }
+        @media (max-width: $r_mobile_600) {
+            grid-template-columns: 1fr;
+            margin-top: 20px;
         }
     }
     &__item{
@@ -742,6 +881,10 @@ a{
         flex-shrink: 0;
         border-radius: $br-50;
         background: $light;
+        @media (max-width: $r_mobile_600) {
+            border-radius: $br-20;
+            gap: 12px;
+        }
     }
     &__text{
         align-self: stretch;
@@ -751,12 +894,61 @@ a{
         line-height: 150%;
         margin-bottom: 0;
         letter-spacing: -0.005em;
+        @media (max-width: $r_mobile_600) {
+            font-size: 12px;
+        }
+    }
+    &__icon{
+        @media (max-width: $r_mobile_600) {
+            height: 40px;
+            width: 40px;
+        }
     }
 }
 
 .result{
     margin-top: 150px;
     margin-bottom: 150px;
+    container-type: inline-size;
+    container-name: result;
+    @container result (max-width: 935px) {
+        .result__list{
+            grid-template-columns: repeat(2, 1fr);
+            padding-bottom: 110px;
+        }
+        .result__item._subgrid {
+            grid-column: 2 / 3;
+            grid-template-columns: inherit;
+        }
+        .result__btn{
+            width: calc(100% + 100% + 30px);
+            grid-column: inherit;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+    }
+    @container result (max-width: 768px) {
+        .result__btn{
+            width: calc(100% + 100% + 20px);
+        }
+    }
+    @container result (max-width: 600px) {
+        .result__btn{
+            font-size: clamp(14px, 3cqi, 20px);
+        }
+    }
+    @container result (max-width: 450px) {
+        .result__list{
+            grid-template-columns: 1fr;
+        }
+        .result__item._subgrid {
+            grid-column: inherit;
+        }
+        .result__btn{
+            width: 100%;
+        }
+    }
     @media (max-width: $r_desk) {
         margin-top: 100px;
         margin-bottom: 100px;
@@ -765,27 +957,43 @@ a{
         margin-top: 80px;
         margin-bottom: 80px;
     }
+    @media (max-width: $r_mobile_600) {
+        margin-top: 50px;
+    }
     &__list{
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 30px;
         margin-top: 50px;
+        position: relative;
+        @media (max-width: $r_tab) {
+            gap: 20px;
+        }
+        @media (max-width: $r_mobile_600) {
+            margin-top: 20px;
+        }
     }
     &__item{
         display: flex;
         padding: 30px;
         flex-direction: column;
-        justify-content: flex-end;
+        justify-content: flex-start;
         align-items: flex-start;
         gap: 20px;
         flex-shrink: 0;
         border-radius:  20px;
         background-color: $light;
+        @media (max-width: $r_desk) {
+            padding: clamp(20px, 2.8vw, 30px);
+        }
         &._subgrid{
             grid-column: 2 / 5;
             display: grid;
             grid-template-columns: subgrid;
             align-items: center;
+            @media (max-width: $r_desk) {
+                grid-template-rows: inherit;
+            }
         }
     }
     &__text{
@@ -796,6 +1004,9 @@ a{
         gap: 20px;
         margin-top: 0;
         margin-bottom: 0;
+        @media (max-width: $r_mobile_600) {
+            font-size: 14px;
+        }
         span{
             width: fit-content;
             background-color: $accent;
@@ -804,12 +1015,15 @@ a{
             font-weight: 600;
             padding: 10px;
             border-radius: 10px;
+            @media (max-width: $r_mobile_600) {
+            font-size: 18px;
+            }
         }
     }
     &__btn{
-      grid-column: 2 / 4;
-      color: $light;
-      height: 100%;
+        grid-column: 2 / 4;
+        align-self: stretch;
+        color: $light;
         font-size: 20px;
         font-weight: 600;
         text-transform: uppercase;
@@ -863,6 +1077,9 @@ a{
         &:not(:last-child){
             border-bottom: 1px solid $accent;
         }
+        @media (max-width: $r_mobile_600) {
+            font-size: 14px;
+        }
         @media (hover: hover) {
             &:hover{
             border-radius: 10px;
@@ -892,7 +1109,7 @@ a{
             background-repeat: no-repeat;
             background-size: contain;
             position: absolute;
-            left: 769px;
+            left: 55vw;
             opacity: 0;
             transform: scale(0);
             transition: $tr;
@@ -900,37 +1117,53 @@ a{
         &._classic{
             &::before{
                 height: 274px;
-                width: 527px;
+                width: clamp(200px, 27vw, 567px);
                 background-image: url('../images/areas/classic-guitar.png');
+                background-position: center;
                 position: absolute;
                 top: calc(50% - 174px);
+                @media (max-width: $r_desk_wxga) {
+                    display: none;
+                }
             }
         }
         &._dram{
             &::before{
                 height: 300px;
-                width: 300px;
+                width: clamp(200px, 18vw, 300px);
                 background-image: url('../images/areas/dram.png');
+                background-position: center;
                 position: absolute;
                 top: calc(50% - 165px);
+                @media (max-width: $r_desk_wxga) {
+                    display: none;
+                }
             }
         }
         &._violin{
             &::before{
                 height: 469px;
-                width: 385px;
+                width: clamp(200px, 22vw, 385px);
                 background-image: url('../images/areas/violin.png');
+                background-position: center;
                 position: absolute;
                 top: calc(50% - 240px);
+                @media (max-width: $r_desk_wxga) {
+                    display: none;
+                }
             }
         }
         &._bass{
             &::before{
                 height: 300px;
-                width: 575px;
+                width: clamp(200px, 27vw, 575px);
                 background-image: url('../images/areas/bass-guitar.png');
+                background-position: center;
                 position: absolute;
                 top: calc(50% - 165px);
+                @media (max-width: $r_desk_wxga) {
+                    display: none;
+                }
             }
         }
     }
